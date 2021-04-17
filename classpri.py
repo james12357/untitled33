@@ -69,7 +69,6 @@ class c:
             return False
 
 
-
 a = c()
 print(sys.getsizeof(a))
 while True:
