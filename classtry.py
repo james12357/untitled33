@@ -24,7 +24,7 @@ def validation(user, passwd):
 
 for i in range(3):
     tmpu = input("%d chance(s) left,user>" % (3 - i))
-    tmpp = input("%d chance(s) left,passwd>" % (3 - i))
+    tmpp = int(input("%d chance(s) left,passwd>" % (3 - i)))
     if validation(tmpu, tmpp):
         exit(0)
     else:

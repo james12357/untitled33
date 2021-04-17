@@ -9,7 +9,7 @@ names = c("a", "b", "c")
 cols = c("#ED1C24","#22B14C","#FFC90E","#3f48CC")
 pie(info, labels=names, col=cols)
 '}
-curve((x ^ x) - (x * x), -2 * pi, 2 * pi)
+curve((x ^ x) - (x ^ x), -2 * pi, 2 * pi)
 
 
 
