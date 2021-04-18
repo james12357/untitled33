@@ -2,4 +2,4 @@
 import os
 while True:
     a = input(">>>")
-    b = str(os.system(a))
+    print(str(os.system(a)).encode("GBK"))
