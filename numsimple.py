@@ -1,6 +1,7 @@
 '''
 @author:James
 '''
+__all__ = ["create_2d_table", "print_2d_table"]
 
 
 def create_2d_table(line, column):
