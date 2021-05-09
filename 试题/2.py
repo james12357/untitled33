@@ -1,6 +1,6 @@
-'''
+"""
 @author:蔡俊熙
-'''
+"""
 lovelist1 = ["真功夫", "面点王", "Starbucks", "Burger King", "KFC", "必胜客"]
 lovelist2 = ["萨莉亚", "McDonald", "吉野家", "真功夫", "Starbucks"]
 same = []

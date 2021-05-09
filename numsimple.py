@@ -10,7 +10,7 @@ def create_2d_table(line, column):
         tmp.append([])
     for j in range(len(tmp)):
         for r in range(column):
-            tmp[j].append([])
+            tmp[j].append("")
     return tmp
 
 
