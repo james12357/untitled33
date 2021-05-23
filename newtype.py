@@ -1,9 +1,6 @@
-
-
-
 class bank:
     def __init__(self):
-        self.__cards = {"90000": ["12345", 100]}
+        self.__cards = {"623887": ["111222", 100]}
         self.__passwd = 0
 
     def __log(self, message):
@@ -31,17 +28,19 @@ class bank:
 
     def getmoney(self):
         return self.__cards[self.__card][1]
+
     def takemoney(self, amount):
         if amount < self.getmoney():
             self.__cards[self.__card][1] -= amount
             return True
+
 
 main = bank()
 mess = main.login()
 
 if mess[0]:
     while True:
-        a = int(input("请选择功能：\n1.查询余额\n2.存款\n3.取款"))
+        a = int(input("请选择功能：\n1.查询余额\n2.存款\n3.取款\n>"))
         if a == 1:
             print(main.getmoney())
         elif a == 2:
@@ -51,7 +50,3 @@ if mess[0]:
         elif a == 3:
             if main.takemoney(float(input("取额"))):
                 print("取钱成功")
-
-
-
-
