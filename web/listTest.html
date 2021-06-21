@@ -1,0 +1,25 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <input list="test">
+        <input type="button" id="c" value="close">
+        <datalist id="test"></datalist>
+        <dialog id="dal">added</dialog>
+        <script>
+            var to;
+            var to_add = ["Chrome", "Firefox", "IE"];
+            for (i of to_add){
+                to = document.createElement("option");
+                to.value = i;
+                document.getElementById("test")
+                .appendChild(to);
+            }
+            b = document.getElementById("dal");
+            b.open = "yes";
+            document.getElementById("c")
+            .onclick = function(){b.removeAttribute("open");}
+        </script>
+    </body>
+</html>
