@@ -17,6 +17,9 @@ class queue:
         for self.__i in range(length):
             self.__lst.append("")
 
+    def __str__(self):
+        return "[Object queue]"
+
     def addQuery(self, value):
         self.__lst.insert(0, value)
 

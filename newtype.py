@@ -6,6 +6,9 @@ class bank:
     def __log(self, message):
         pass
 
+    def __str__(self):
+        return "[Object bank]"
+
     def login(self):
         self.__card = str(input("卡号>"))
         self.__passwd = input("密码>")
