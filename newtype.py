@@ -50,9 +50,8 @@ class bank:
 
 
 main = bank()
-mess = main.login()
 
-if mess[0]:
+if main.login()[0]:
     while True:
         a = int(input("请选择功能：\n1.查询余额\n2.存款\n3.取款\n>"))
         if a == 1:
