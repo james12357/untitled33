@@ -22,13 +22,13 @@ def generateUnicodePassword(length: int):
             for i in range(length):
                 passwd.append(chr(random.randint(1, 65536)))
             print("".join(passwd))
-
-        except UnicodeEncodeError:
-            passwd = []
-        else:
             for j in passwd:
                 tmp += str(ord(j))
             print(tmp, end="")
             print()
+        except UnicodeEncodeError:
+            passwd = []
+        else:
+
             break
     return {"origin": "".join(passwd), "num": tmp}
