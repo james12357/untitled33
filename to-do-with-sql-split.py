@@ -1,7 +1,7 @@
 import pymysql
 import time
 autoSave = True
-conn = pymysql.connect(host='localhost', user="root", passwd=input("passwd>"), db="testdb")
+conn = pymysql.connect(host=input("host>"), user="root", passwd=input("passwd>"), db=input("[testdb] db>"))
 cursor = conn.cursor()
 cursor.execute("USE testdb")
 
