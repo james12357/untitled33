@@ -1,7 +1,7 @@
 import pymysql
 import time
 autoSave = True
-conn = pymysql.connect(host='localhost', user="root", passwd="123456", db="testdb")
+conn = pymysql.connect(host='localhost', user="root", passwd=input("passwd>"), db="testdb")
 cursor = conn.cursor()
 cursor.execute("USE testdb")
 
@@ -10,25 +10,32 @@ while True:
         r = input("READY>")
         r = r.split(" ", 1)
         if r[0] == "list":
-            cursor.execute("SELECT * FROM TBTEST_1")
+            cursor.execute("SELECT * FROM LST")
             for x in cursor:
                 print(x)
         if r[0] == "add":
-            cursor.execute("SELECT * FROM TBTEST_1")
-            cursor.execute("INSERT INTO TBTEST_1 (todo, date) values(%s,%s)", (r[1], time.asctime(time.localtime(time.time()))))
+            # noinspection PyTypeChecker
+            r[1] = r[1].split(" ", 1)
+            cursor.execute("SELECT * FROM LST")
+            cursor.execute("INSERT INTO LST (title, content, date) values(%s,%s,%s)", (r[1][0], r[1][1], time.asctime(time.localtime(time.time()))))
             if autoSave:
                 conn.commit()
         if r[0] == "save":
+            print("changes saved.")
             conn.commit()
         if r[0] == "del":
-            cursor.execute("DELETE FROM TBTEST_1 WHERE todo = '"+r[1]+"'")
+            cursor.execute("DELETE FROM LST WHERE title = '"+r[1]+"'")
             if autoSave:
                 conn.commit()
         if r[0] == "drop":
-            cursor.execute("DELETE FROM TBTEST_1 WHERE todo like  '%"+r[1]+"%'")
-            print("Drop method will not automatically save.\nRun 'save' to save changes.")
+            cursor.execute("DELETE FROM LST WHERE title like  '%"+r[1]+"%'")
+            print("Drop method will not save changes until you decided.\nRun 'save' to save changes.")
         if r[0] == "find":
-            cursor.execute("SELECT * FROM tbtest_1 where todo like '%"+r[1]+"%';")
+            cursor.execute("SELECT * FROM LST where title like '%"+r[1]+"%';")
+            for x in cursor:
+                print(x)
+        if r[0] == "content":
+            cursor.execute("SELECT * FROM LST where content like '%"+r[1]+"%';")
             for x in cursor:
                 print(x)
     except IndexError:
