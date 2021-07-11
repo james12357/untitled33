@@ -31,13 +31,36 @@ while True:
             cursor.execute("DELETE FROM LST WHERE title like  '%"+r[1]+"%'")
             print("Drop method will not save changes until you decided.\nRun 'save' to save changes.")
         if r[0] == "find":
-            cursor.execute("SELECT * FROM LST where title like '%"+r[1]+"%';")
+            # noinspection PyTypeChecker
+            r[1] = r[1].split(" ", 1)
+            if r[1][0] == "title":
+                cursor.execute("SELECT * FROM LST WHERE title like '%"+r[1][1]+"%';")
+                for x in cursor:
+                    print(x)
+            if r[1][0] == "content":
+                cursor.execute("SELECT * FROM LST WHERE content like '%"+r[1][1]+"%';")
+                for x in cursor:
+                    print(x)
+            if r[1][0] == "id":
+                cursor.execute("SELECT * FROM LST WHERE id like '%"+r[1][1]+"%';")
+                for x in cursor:
+                    print(x)
+            """cursor.execute("SELECT * FROM LST WHERE title like '%"+r[1]+"%';")
             for x in cursor:
-                print(x)
-        if r[0] == "content":
-            cursor.execute("SELECT * FROM LST where content like '%"+r[1]+"%';")
-            for x in cursor:
-                print(x)
+                print(x)"""
+
+        if r[0] == "select":
+            # noinspection PyTypeChecker
+            r[1] = r[1].split(" ", 1)
+            if r[1][0] == "top":
+                cursor.execute("SELECT * from lst order by id limit " + r[1][1])
+                for x in cursor:
+                    print(x)
+            if r[1][0] == "last":
+                cursor.execute("SELECT * from lst order by id desc limit " + r[1][1])
+                for x in cursor:
+                    print(x)
+
     except IndexError:
         print("Error:too few arguments")
 
