@@ -1,3 +1,10 @@
+"""
+a=1
+b=2
+c=3
+d=4
+e=5
+"""
 from matplotlib import pyplot as plt
 import numpy as np
 from collections import Counter as Cot

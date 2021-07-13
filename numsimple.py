@@ -1,10 +1,10 @@
-'''
+"""
 @author:James
-'''
+"""
 __all__ = ["create_2d_table", "print_2d_table"]
 
 
-def create_2d_table(line, column):
+def create_2d_table(line=3, column=3):
     tmp = []
     for i in range(line):
         tmp.append([])
