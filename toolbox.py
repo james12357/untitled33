@@ -14,21 +14,18 @@ def getPlatform():
 
 
 def generateUnicodePassword(length: int):
-    passwd = []
-    tmp = ""
     import random
+    passwd = []
+    num = ""
     while True:
         try:
             for i in range(length):
                 passwd.append(chr(random.randint(1, 65536)))
-            print("".join(passwd))
             for j in passwd:
-                tmp += str(ord(j))
-            print(tmp, end="")
-            print()
+                num += str(ord(j))
         except UnicodeEncodeError:
             passwd = []
         else:
 
             break
-    return {"origin": "".join(passwd), "num": tmp}
+    return {"origin": "".join(passwd), "num": num}

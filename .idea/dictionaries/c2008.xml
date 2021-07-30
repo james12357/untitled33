@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="c2008">
     <words>
+      <w>emailandaccounts</w>
       <w>gethash</w>
       <w>gethidecode</w>
       <w>gethidename</w>
@@ -13,6 +14,8 @@
       <w>realname</w>
       <w>seta</w>
       <w>setpasswd</w>
+      <w>signinoptions</w>
+      <w>storagesense</w>
       <w>taskkill</w>
       <w>tbtest</w>
       <w>testdb</w>
@@ -20,6 +23,7 @@
       <w>tmpu</w>
       <w>unreversed</w>
       <w>verifyhash</w>
+      <w>windowsupdate</w>
     </words>
   </dictionary>
 </component>

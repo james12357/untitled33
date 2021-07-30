@@ -1,6 +1,6 @@
-'''
+"""
 @author:蔡俊熙
-'''
+"""
 try:
     i = int(input("1"))
     a = int(input("2"))
