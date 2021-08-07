@@ -29,3 +29,8 @@ def generateUnicodePassword(length: int):
 
             break
     return {"origin": "".join(passwd), "num": num}
+
+
+def calculateHexFromString(string: str or bytes, sep: str = ""):
+    string = memoryview(bytearray(string))
+    return string.hex(sep) if sep != "" else string.hex()
