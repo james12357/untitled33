@@ -3,8 +3,7 @@ from tkinter import Tk, GROOVE, Button, Label, TOP, messagebox
 from itertools import cycle
 
 global running
-running = False
-names = cycle(["a", "b", "c", "d", "e"])
+names = cycle(["小明", "小红", "小军", "小花", "智慧老人"])
 root = Tk()
 root.title(' 滚 动 抽 奖 器')
 txt = tkinter.StringVar()
@@ -17,7 +16,7 @@ start2_label = Label(text='幸运儿是你吗...', width=17, height=3,
 def rolling():
     global running
     if running:
-        root.after(1, rolling)
+        root.after(50, rolling)
     else:
         return None
     txt.set(next(names))

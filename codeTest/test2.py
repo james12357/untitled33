@@ -1,6 +1,5 @@
 from tkinter import Tk, Label, Entry, Button, TOP
 import pymysql
-from qrcode import make
 
 cursor = pymysql.connect(host="localhost", user="root", passwd="123456").cursor()  # 初始化数据库连接
 cursor.execute("use testdb")
