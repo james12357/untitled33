@@ -1,3 +1,5 @@
+# Failed
+
 from tkinter import Tk, Label, Entry, Button, TOP
 import pymysql
 
