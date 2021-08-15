@@ -1,7 +1,6 @@
 import cv2
 from pyzbar import pyzbar
 from tkinter.messagebox import showinfo
-from os import startfile
 found = set()
 capture = cv2.VideoCapture(0)
 PATH = "test.csv"

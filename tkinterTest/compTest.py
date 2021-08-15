@@ -1,3 +1,4 @@
+# Failed
 # noinspection PyCompatibility
 from tkinter import Tk, Button, GROOVE
 import os
@@ -6,7 +7,7 @@ from itertools import cycle
 
 def show(command: str):
     """
-    execute a command in shell.
+    Execute a command in shell.
     :param command: command to do
     """
     os.system("start %s" % command)

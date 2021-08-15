@@ -1,8 +1,9 @@
 """
+Some tools.
 @author:蔡俊熙
 @license:MIT
 """
-__all__ = ["dictGenerator", "getPlatform", "generateUnicodePassword"]
+__all__ = ["dictGenerator", "getPlatform", "generateUnicodeCharacters", "generateRandomCharacters"]
 
 
 def dictGenerator(**kwargs):
@@ -13,7 +14,7 @@ def getPlatform():
     return __import__("sys").platform
 
 
-def generateUnicodePassword(length: int):
+def generateUnicodeCharacters(length: int = 6):
     import random
     passwd = []
     num = ""
@@ -32,5 +33,13 @@ def generateUnicodePassword(length: int):
 
 
 def calculateHexFromString(string: str or bytes, sep: str = ""):
-    string = memoryview(bytearray(string))
+    string = memoryview(bytes(string, "utf-8"))
     return string.hex(sep) if sep != "" else string.hex()
+
+
+def generateRandomCharacters(length: int = 6):
+    import random
+    return (''.join(
+        random.choice('ahui0-]}{?lubfGYUIABVEIIYYHULIAYUIIAWYAGO'
+                      'UGAUSHIuityrtwtbyui,xmjnhcgbd9456!@#$%^'
+                      '&*(526478253674][][') for i in range(length)))

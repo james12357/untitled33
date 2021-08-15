@@ -1,9 +1,11 @@
 import tkinter
 from tkinter import Tk, GROOVE, Button, Label, TOP, messagebox
 from itertools import cycle
+from random import choice
 
 global running
 names = cycle(["小明", "小红", "小军", "小花", "智慧老人"])
+reward = ["一等奖", "二等奖", "三等奖"]
 root = Tk()
 root.title(' 滚 动 抽 奖 器')
 txt = tkinter.StringVar()
@@ -33,7 +35,7 @@ def stop():
     global running
     running = False
     start_button.focus()
-    if messagebox.askokcancel("恭喜", f"恭喜 {txt.get()} 获得一等奖！\n按 确定 重新开始"):
+    if messagebox.askokcancel("恭喜", f"恭喜 {txt.get()} 获得{choice(reward)}！\n按 确定 重新开始"):
         start()
     else:
         return None

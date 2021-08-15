@@ -1,3 +1,8 @@
+"""
+A screen saver.
+@author:James
+@license:MIT
+"""
 from tkinter import Tk, PhotoImage, Canvas, Label, BOTH
 from itertools import cycle
 import time
@@ -26,7 +31,7 @@ def change():
     canvas.create_image(0, 0, image=image)
     canvas.create_text(wid / 2, hei / 2 - 100,
                        text=time.strftime(" %H:%M\n星期{0}".format(aDict[time.strftime("%A", time.localtime())]),
-                                          time.localtime()), font=("微软雅黑", 30))
+                                          time.localtime()), font=("微软雅黑", 30), fill="white")
     canvas.after(2000, change)
 
 

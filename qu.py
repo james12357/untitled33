@@ -1,4 +1,5 @@
 """
+Queue.
 @author:James
 @License:MIT
 """
@@ -29,5 +30,5 @@ class queue:
         else:
             raise noElementInQueryError
 
-    def getLenOfQuery(self):
+    def getLen(self):
         return len(self.__lst)
