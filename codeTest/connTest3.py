@@ -4,11 +4,14 @@ import sys
 
 url = ["http://baidu.com"]
 timeout = 3
+
 if len(sys.argv) > 1:
     opts, args = getopt.getopt(sys.argv[1:], "hf:t:u:", ["help", "filename=", "timeout=", "url="])
     for optName, optValue in opts:
+        optValue: str
         if opts in ("-h", "--help"):
-            print("")
+            # TODO(James): complete document
+            pass
         if opts in ("-f", "--filename"):
             url = open(optValue, "r").readlines()
         if opts in ("-t", "--timeout"):
