@@ -5,7 +5,7 @@ import doubanSpiderHigh as doubanHigh
 import doubanSpiderNew as doubanNew
 
 
-receiver = ["caijunxi@jamesnet.xyz", "501989869@qq.com"]
+receiver = ["caijunxi@jamesnet.xyz"]
 resHigh = doubanHigh.get()
 resNew = doubanNew.get()
 rHigh = []

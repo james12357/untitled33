@@ -10,7 +10,7 @@ def a():
         host = socket.gethostname()  # 获取本地主机名
         port = 12346  # 设置端口号
         s.connect((host, port))
-        print(s.recv(1024).decode("utf-8"))
+        print(s.recv(1024))
         s.close()
 
 

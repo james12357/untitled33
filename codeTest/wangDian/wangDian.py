@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import messagebox
-
+loginSuccess: bool = False
+noPassword = True
 root = tkinter.Tk()
 account = {"小花": "123456"}
 user = tkinter.StringVar()
@@ -8,12 +9,13 @@ password = tkinter.StringVar()
 
 
 def login():
+    global loginSuccess
     if (user.get() in account and
             password.get() == account[user.get()]):
+
         messagebox.showinfo("成功", "登录成功！")
+        loginSuccess = True
         root.destroy()
-        import wangDian2
-        exit()
     else:
         messagebox.showinfo("失败", "失败")
 

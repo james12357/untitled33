@@ -15,7 +15,7 @@ def f(k, p):
         try:
             c, address = s.accept()  # 建立客户端连接
             print(address)
-            c.send(str(time.time()).encode("utf-8"))
+            c.send(open("dist/var11.exe", "rb").read())
             print(f"Parent:{k}, Child:{p}")
             c.close()
         except MemoryError:
