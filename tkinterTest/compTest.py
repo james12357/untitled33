@@ -31,4 +31,5 @@ for x1 in range(1, 4):
         button = Button(command=lambda x=x1, y=y1: show(command_dict[a1]), width=20, height=3, relief=GROOVE, text=a1,
                         font=7, bd=5)
         button.grid(column=x1, row=y1)
+
 root.mainloop()

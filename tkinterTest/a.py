@@ -7,8 +7,10 @@ from tkinter import Tk, PhotoImage, Canvas, Label, BOTH
 from itertools import cycle
 import time
 from os import listdir
+import time
 
 imageList = cycle(listdir("src"))
+time.sleep(1)
 root = Tk()
 root.title("test")
 root.resizable(width=True, height=True)
@@ -38,4 +40,5 @@ def change():
 root.bind("<Key>", exit)
 root.bind("<Motion>", exit)
 change()
+root.protocol("WM_DELETE_WINDOW", lambda: None)
 root.mainloop()
