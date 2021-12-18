@@ -1,6 +1,5 @@
 # 屏幕大小
 SCREENSIZE = (1000, 700)
-
 # 游戏图片路径
 Image_Paths = {
     'bg': 'images/bg.png',
@@ -10,11 +9,10 @@ Image_Paths = {
     'enemy': 'images/enemy.png',
     'gameover': 'images/gameover.png',
     'youwin': 'images/youwin.png',
-    'bloodbar': 'images/bloodbar.png',
-    'blood': 'images/blood.png',
+    'breedbar': 'images/healthbar.png',
+    'breed': 'images/health.png'
 }
 #游戏音效路径
-
 Sound_Paths = {
     'bgm': 'sound/bgm.wav',
     'shoot': 'sound/shoot.wav'
