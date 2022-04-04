@@ -32,7 +32,7 @@ def change():
     image = PhotoImage(file="src/%s" % (next(imageList)))
     canvas.create_image(0, 0, image=image)
     canvas.create_text(wid / 2, hei / 2 - 100,
-                       text=time.strftime(" %H:%M\n星期{0}".format(aDict[time.strftime("%A", time.localtime())]),
+                       text=time.strftime(" %H:%M\n{g}{0}".format(aDict[time.strftime("%A", time.localtime())], g="星期"),
                                           time.localtime()), font=("微软雅黑", 30), fill="white")
     canvas.after(2000, change)
 

@@ -22,13 +22,14 @@ command_dict = {"显示": "ms-settings:display", "存储": "ms-settings:storages
                 "关于": "ms-settings:about"}
 a = cycle(list(command_dict))
 root = Tk()
+root.attributes("-topmost", True)
 root.title("test")
 root.resizable(width=True, height=True)
 for x1 in range(1, 4):
     for y1 in range(1, 5):
         a1 = next(a)
         print(command_dict[a1])
-        button = Button(command=lambda x=x1, y=y1: show(command_dict[a1]), width=20, height=3, relief=GROOVE, text=a1,
+        button = Button(command=lambda x=x1, y=y1, a2=a1: show(command_dict[a2]), width=20, height=3, relief=GROOVE, text=a1,
                         font=7, bd=5)
         button.grid(column=x1, row=y1)
 

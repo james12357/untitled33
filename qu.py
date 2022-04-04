@@ -4,15 +4,15 @@ Queue.
 @License:MIT
 """
 
-__all__ = ["queue"]
+__all__ = ["Queue"]
 
 
-class noElementInQueryError:
+class NoElementInQueryError:
     def __init__(self):
         pass
 
 
-class queue:
+class Queue:
     def __init__(self, length: int = 0):
         self.__lst = []
         for self.__i in range(length):
@@ -28,7 +28,7 @@ class queue:
         if len(self.__lst) > 0:
             return self.__lst.pop()
         else:
-            raise noElementInQueryError
+            raise NoElementInQueryError
 
     def getLen(self):
         return len(self.__lst)
