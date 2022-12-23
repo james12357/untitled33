@@ -15,4 +15,11 @@
       </list>
     </option>
   </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/printtest/templates" />
+      </list>
+    </option>
+  </component>
 </module>
