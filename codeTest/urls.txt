@@ -1,2 +1,12 @@
-
 https://www.jamesnet.xyz
+http://baidu.com
+http://google.com
+http://example.com
+http://192.168.31.1
+http://cn.bing.com
+http://msn.cn
+https://admin.microsoft.com
+http://minecraft.net
+http://192.168.31.169:6969
+http://qq.com
+http://csdn.net

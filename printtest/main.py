@@ -15,30 +15,48 @@ cursor.execute("use testdb")
 def login():
     if request.method == "POST":
         data = request.form["username"]
-
-        cursor.execute("select * from webtest where username = '" + data + "'")
+        cursor.execute("select username from webtest where username = '"
+                       + data + "' and password = '" + request.form["password"] + "' limit 1")
         for x in cursor:
-            return str(x)
+            token = uuid.uuid4().hex
+            cursor.execute("update webtest set token = '" + token + "' WHERE username = '" + data + "'")
+            connection.commit()
+            resp = make_response("Success\n<a href='/upload'>点我</a>")
+            resp.set_cookie("token", token)
+            return resp
         return "nothing match"
     else:
+        if "token" in request.cookies:
+            cursor.execute("select username from webtest where token = '"
+                           + request.cookies.get("token") + "' limit 1")
+            for x in cursor:
+                return redirect(url_for("upload"))
+            return render_template("login.html")
         return render_template("login.html")
 
 
 @app.route("/")
 def root():
-    return make_response(redirect(url_for("login")))
+    return redirect(url_for("upload"))
 
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
-    if request.method == "POST":
-        file = request.files["file_upload"]
-        if file:
-            name = uuid.uuid4().hex + "." + (file.filename.split(".") if "." in file.filename else [file.filename])[-1]
-            file.save(os.path.join("upl", name))
-            return "Success\n" + "<a href=/view_file/" + name + ">点我</a>"
-    else:
-        return render_template("printtest.html")
+    if "token" in request.cookies:
+        cursor.execute("select username from webtest where token = '"
+                       + request.cookies.get("token") + "' limit 1")
+        for x in cursor:
+            if request.method == "POST":
+                file = request.files["file_upload"]
+                if file:
+                    name = uuid.uuid4().hex + "." + \
+                           (file.filename.split(".") if "." in file.filename else [file.filename])[-1]
+                    file.save(os.path.join("upl", name))
+                    return "Success\n" + "<a href=/view_file/" + name + ">点我</a>"
+            else:
+                return render_template("printtest.html")
+        return redirect(url_for("login"))
+    return redirect(url_for("login"))
 
 
 @app.route("/view_file/<filename>")
